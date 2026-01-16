@@ -93,6 +93,20 @@ public partial class RegionCaptureOverlayWindow : Window
         if (_snappingService.TryGetWindowUnderCursor(out var windowRect))
         {
             var logicalRect = _screenMapping.ToLogicalRect(windowRect, _screen);
+
+            // If the snapped rect is effectively the full monitor but slightly smaller
+            // (e.g., work area without taskbar), normalize to the overlay bounds.
+            var isOriginAligned = Math.Abs(logicalRect.X) < 1 && Math.Abs(logicalRect.Y) < 1;
+            var widthGap = ClientSize.Width - logicalRect.Width;
+            var heightGap = ClientSize.Height - logicalRect.Height;
+            var almostFullWidth = widthGap >= 0 && widthGap <= 8;
+            var almostFullHeight = heightGap >= 0 && heightGap <= 40; // allow taskbar margin
+
+            if (isOriginAligned && almostFullWidth && almostFullHeight)
+            {
+                logicalRect = new Rect(0, 0, ClientSize.Width, ClientSize.Height);
+            }
+
             ViewModel.HoverRect = logicalRect;
             ViewModel.State = RegionCaptureState.HoveringWindow;
         }
