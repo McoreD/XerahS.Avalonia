@@ -1,0 +1,36 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionCapture", "src\RegionCapture\RegionCapture.csproj", "{12470907-4A74-05CC-D520-474D0BB34EEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionCaptureHost", "src\RegionCaptureHost\RegionCaptureHost.csproj", "{EB1EB193-F724-5B98-76DF-D5E5A4704400}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12470907-4A74-05CC-D520-474D0BB34EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12470907-4A74-05CC-D520-474D0BB34EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12470907-4A74-05CC-D520-474D0BB34EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12470907-4A74-05CC-D520-474D0BB34EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB1EB193-F724-5B98-76DF-D5E5A4704400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB1EB193-F724-5B98-76DF-D5E5A4704400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB1EB193-F724-5B98-76DF-D5E5A4704400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB1EB193-F724-5B98-76DF-D5E5A4704400}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{12470907-4A74-05CC-D520-474D0BB34EEA} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{EB1EB193-F724-5B98-76DF-D5E5A4704400} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51CB2A09-7A06-4B6D-BBE7-CAEC31A8ECE3}
+	EndGlobalSection
+EndGlobal

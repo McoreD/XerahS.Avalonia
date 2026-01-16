@@ -20,6 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\\RegionCapture\\RegionCapture.csproj" />
+    <ProjectReference Include="..\\RegionCapture\\XerahS.Avalonia.RegionCapture.csproj" />
   </ItemGroup>
 </Project>
