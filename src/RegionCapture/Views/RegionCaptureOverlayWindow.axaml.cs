@@ -18,7 +18,6 @@ public partial class RegionCaptureOverlayWindow : Window
     private readonly Screen _screen;
     private readonly ScreenMappingService _screenMapping;
     private readonly Win32WindowSnappingService _snappingService = new();
-    private readonly double _scaling;
     private Point? _dragAnchor;
     public event EventHandler<PixelRect>? SelectionConfirmed;
     public event EventHandler? SelectionCanceled;
@@ -38,11 +37,10 @@ public partial class RegionCaptureOverlayWindow : Window
         InitializeComponent();
         _screen = screen;
         _screenMapping = screenMapping;
-        _scaling = screen.Scaling;
         DataContext = viewModel ?? new RegionCaptureOverlayViewModel();
         Position = _screen.Bounds.Position;
-        Width = _screen.Bounds.Width / _scaling;
-        Height = _screen.Bounds.Height / _scaling;
+        Width = _screen.Bounds.Width;
+        Height = _screen.Bounds.Height;
         TransparencyLevelHint = new[] { WindowTransparencyLevel.Transparent };
         PointerMoved += OnPointerMoved;
         PointerPressed += OnPointerPressed;
