@@ -1,0 +1,77 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:XerahS.RegionCapture.ViewModels"
+        x:Class="XerahS.RegionCapture.Views.RegionCaptureOverlayWindow"
+        mc:Ignorable="d"
+        TransparencyLevelHint="Transparent"
+        SystemDecorations="None"
+        ShowInTaskbar="False"
+        CanResize="False"
+        WindowStartupLocation="Manual"
+        Background="Transparent"
+        Topmost="True">
+  <Window.DataContext>
+    <viewmodels:RegionCaptureOverlayViewModel />
+  </Window.DataContext>
+  <Grid>
+    <Canvas x:Name="OverlayCanvas" Background="Transparent">
+      <Path Fill="#80000080"
+            Data="{Binding OverlayGeometry}"
+            IsHitTestVisible="False" />
+
+      <Border Canvas.Left="{Binding SelectionRect.X}"
+              Canvas.Top="{Binding SelectionRect.Y}"
+              Width="{Binding SelectionRect.Width}"
+              Height="{Binding SelectionRect.Height}"
+              Background="#40FFFFFF"
+              BorderBrush="#FF64B5F6"
+              BorderThickness="2"
+              CornerRadius="2"
+              IsHitTestVisible="False">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <Rectangle Grid.Row="0" Grid.Column="0" Width="10" Height="10" Fill="#FF64B5F6" HorizontalAlignment="Left" VerticalAlignment="Top" />
+          <Rectangle Grid.Row="0" Grid.Column="2" Width="10" Height="10" Fill="#FF64B5F6" HorizontalAlignment="Right" VerticalAlignment="Top" />
+          <Rectangle Grid.Row="2" Grid.Column="0" Width="10" Height="10" Fill="#FF64B5F6" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+          <Rectangle Grid.Row="2" Grid.Column="2" Width="10" Height="10" Fill="#FF64B5F6" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+        </Grid>
+      </Border>
+
+      <Border Canvas.Left="{Binding HoverRect.X, FallbackValue=0}"
+              Canvas.Top="{Binding HoverRect.Y, FallbackValue=0}"
+              Width="{Binding HoverRect.Width, FallbackValue=0}"
+              Height="{Binding HoverRect.Height, FallbackValue=0}"
+              BorderBrush="#FF80CBC4"
+              BorderThickness="2"
+              CornerRadius="1"
+              IsVisible="{Binding HasHover}"
+              IsHitTestVisible="False" />
+
+      <Line x:Name="CrosshairHorizontal"
+            StartPoint="0,0"
+            EndPoint="0,0"
+            Stroke="#FFFFFFFF"
+            StrokeDashArray="4,4"
+            StrokeThickness="1"
+            IsHitTestVisible="False" />
+      <Line x:Name="CrosshairVertical"
+            StartPoint="0,0"
+            EndPoint="0,0"
+            Stroke="#FFFFFFFF"
+            StrokeDashArray="4,4"
+            StrokeThickness="1"
+            IsHitTestVisible="False" />
+    </Canvas>
+  </Grid>
+</Window>
