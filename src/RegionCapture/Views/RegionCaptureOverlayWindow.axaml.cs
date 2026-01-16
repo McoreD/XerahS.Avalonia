@@ -39,8 +39,9 @@ public partial class RegionCaptureOverlayWindow : Window
         _screenMapping = screenMapping;
         DataContext = viewModel ?? new RegionCaptureOverlayViewModel();
         Position = _screen.Bounds.Position;
-        Width = _screen.Bounds.Width;
-        Height = _screen.Bounds.Height;
+        var scaling = _screen.Scaling;
+        Width = _screen.Bounds.Width / scaling;
+        Height = _screen.Bounds.Height / scaling;
         TransparencyLevelHint = new[] { WindowTransparencyLevel.Transparent };
         PointerMoved += OnPointerMoved;
         PointerPressed += OnPointerPressed;
